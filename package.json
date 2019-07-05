@@ -3,17 +3,28 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "10.16.0",
+    "npm": "6.9.0"
+  },
   "scripts": {
+    "start": "node build/app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon --exec babel-node server/app.js",
     "migrate:undo": "node_modules/.bin/sequelize db:migrate:undo:all",
     "migrate": "node_modules/.bin/sequelize db:migrate",
-    "seed:all": "npx sequelize-cli db:seed:all"
+    "seed:all": "npx sequelize-cli db:seed:all",
+    "clean": "rm -rf build && mkdir build",
+    "build-server": "babel -d ./build ./server",
+    "build": "npm run clean && npm run build-server"
+
   },
   "devDependencies": {
+    "@babel/cli": "^7.5.0",
     "@babel/core": "^7.5.0",
     "@babel/node": "^7.5.0",
     "@babel/preset-env": "^7.5.0",
+    "@babel/register": "^7.4.4",
     "eslint": "^6.0.1",
     "eslint-config-airbnb-base": "^13.2.0",
     "eslint-plugin-import": "^2.18.0",
