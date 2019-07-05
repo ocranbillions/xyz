@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import { config } from 'dotenv';
+import userRoutes from './routes/userRoutes';
 
 config();
 
@@ -17,11 +18,11 @@ app.get('/', (req, res) => {
   res.send('Welcome to xzy');
 });
 
-// app.all('*', (req, res) =>
-//   res.status(404).json({
-//     error: 'Sorry, the requested endpoint does not exist on our server'
-//   });
-// );
+// Handles user routes
+app.use('/api/v1/users', userRoutes);
+
+
+// app.use(ErrorHandler.sendError);
 
 
 if (process.env.NODE_ENV !== 'test') {
