@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "node build/app.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --updateSnapshot --forceExit --verbose",
     "dev": "nodemon --exec babel-node server/app.js",
     "migrate:undo": "node_modules/.bin/sequelize db:migrate:undo:all",
     "migrate": "node_modules/.bin/sequelize db:migrate",
@@ -28,7 +28,9 @@
     "eslint": "^6.0.1",
     "eslint-config-airbnb-base": "^13.2.0",
     "eslint-plugin-import": "^2.18.0",
-    "nodemon": "^1.19.1"
+    "jest": "^24.8.0",
+    "nodemon": "^1.19.1",
+    "supertest": "^4.0.2"
   },
   "dependencies": {
     "body-parser": "^1.19.0",

@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // app.get('/', (req, res) => res.status(301).redirect('/api/v1'));
 
 app.get('/', (req, res) => {
-  res.send('Welcome to xzy');
+  res.status(200).json({ message: 'Welcome to xyz' });
 });
 
 // Handles user routes
