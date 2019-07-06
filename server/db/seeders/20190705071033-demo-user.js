@@ -11,7 +11,7 @@ module.exports = {
       lastName: 'Doe',
       email: 'johndoe@gmail.com',
       createdAt: new Date(),
-      updatedAt: Sequelize.timestamptz,
+      updatedAt: new Date(),
     }], {});
   },
 

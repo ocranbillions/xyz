@@ -16,8 +16,8 @@
     "seed:all": "npx sequelize-cli db:seed:all",
     "clean": "rm -rf build && mkdir build",
     "build-server": "babel -d ./build ./server",
-    "build": "npm run clean && npm run build-server"
-
+    "build": "npm run clean && npm run build-server",
+    "heroku-postbuild": "npm run migrate && npm run seed:all && npm run build"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.0",
