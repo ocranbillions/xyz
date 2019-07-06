@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Welcome to helo books Should return a message on app start 1`] = `
+Object {
+  "message": "Welcome to xyz",
+}
+`;
