@@ -1,14 +1,17 @@
+after_success: 
+  - "npm run coveralls"
+before_script: 
+  - "npm run migrate"
+  - "npm run seed:all"
+branches: 
+  only: 
+    - develop
+cache: 
+  directories: 
+    - node_modules
 language: node_js
 node_js: 
-  - "stable"
-cache:
-  directories:
-    - "node_modules"
-branches:
-  only:
-  - develop
-before_script:
-  - npm run migrate
-  - npm run seed:all
-after_success:
-  - npm run coveralls
+  - stable
+services: 
+  - postgresql
+
