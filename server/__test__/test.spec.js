@@ -5,8 +5,8 @@ import app from '../app';
 const server = () => supertest(app);
 const url = '/api/v1';
 
-describe('Welcome to helo books', () => {
-  it('Should return a message on app start', (done) => {
+describe('Welcome to xyz', () => {
+  it('Should return json object with a welcome message on app start', (done) => {
     server().get('/')
       .end((err, res) => {
         expect(res.statusCode).toEqual(200);

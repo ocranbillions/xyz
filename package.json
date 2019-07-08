@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "node build/app.js",
-    "test": "jest --updateSnapshot --forceExit --verbose",
+    "test": "jest --updateSnapshot --forceExit --detectOpenHandles --verbose --coverage",
     "dev": "nodemon --exec babel-node server/app.js",
     "migrate:undo": "node_modules/.bin/sequelize db:migrate:undo:all",
     "migrate": "node_modules/.bin/sequelize db:migrate",
@@ -17,7 +17,8 @@
     "clean": "rm -rf build && mkdir build",
     "build-server": "babel -d ./build ./server",
     "build": "npm run clean && npm run build-server",
-    "heroku-postbuild": "npm run migrate && npm run build"
+    "heroku-postbuild": "npm run migrate && npm run build",
+    "coveralls": "npm run test && cat ./coverage/lcov.info | coveralls"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.0",
@@ -25,6 +26,7 @@
     "@babel/node": "^7.5.0",
     "@babel/preset-env": "^7.5.0",
     "@babel/register": "^7.4.4",
+    "coveralls": "^3.0.4",
     "eslint": "^6.0.1",
     "eslint-config-airbnb-base": "^13.2.0",
     "eslint-plugin-import": "^2.18.0",
