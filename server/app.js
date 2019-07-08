@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import { config } from 'dotenv';
 import userRoutes from './routes/userRoutes';
+import authRoutes from './routes/authRoutes';
 
 config();
 
@@ -19,6 +20,7 @@ app.get('/', (req, res) => {
 });
 
 // Handles user routes
+app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/users', userRoutes);
 
 // app.use(ErrorHandler.sendError);
