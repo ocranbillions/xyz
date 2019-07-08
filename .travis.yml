@@ -13,6 +13,7 @@ cache:
 env: 
   global: 
     - "export NODE_ENV=test"
+    - TEST_DATABASE_URL=postgres://postgres:postgres@localhost:5432/travis_ci_test
 language: node_js
 node_js: 
   - stable
