@@ -1,6 +1,7 @@
 after_success: 
   - "npm run coveralls"
 before_script: 
+  - "psql -c 'create database travis_ci_test;' -U postgres"
   - "npm run migrate"
   - "npm run seed:all"
 branches: 
@@ -12,6 +13,7 @@ cache:
 env: 
   global: 
     - "export NODE_ENV=test"
+    - TEST_DATABASE_URL=travis_ci_test
 language: node_js
 node_js: 
   - stable
