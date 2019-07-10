@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import { config } from 'dotenv';
 import userRoutes from './routes/userRoutes';
 import authRoutes from './routes/authRoutes';
+import articlesRoutes from './routes/articlesRoutes';
 
 config();
 
@@ -22,6 +23,7 @@ app.get('/', (req, res) => {
 // Handles user routes
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/users', userRoutes);
+app.use('/api/v1/articles', articlesRoutes);
 
 // app.use(ErrorHandler.sendError);
 

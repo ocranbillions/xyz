@@ -12,7 +12,6 @@ class UserController {
     if (foundUser) return util.errorStatus(res, 409, 'email exists already');
 
     const hashPassword = auth.hashPassword(password);
-    // const mailToken = auth.generateMailToken({ firstName, email });
     const user = {
       firstName,
       lastName,
@@ -22,8 +21,6 @@ class UserController {
 
     const createdUser = await models.Users.create(user);
     const token = auth.generateToken({ id: createdUser.id, firstName, lastName, email });
-    // const link = `${url}/auth/verifyemail?token=${mailToken}&id=${createdUser.id}`;
-    // mailer.sendWelcomeMail(user.email, user.firstName, link);
 
     return util.successStatus(res, 201, 'User Created successfully', {
       token,
@@ -58,7 +55,13 @@ class UserController {
   }
 
   static async getUsers(req, res) {
-    const users = await models.Users.findAll();
+    const users = await models.Users.findAll({
+      include: [
+        {
+          model: models.Articles,
+        },
+      ],
+    });
     return res.status(200).json({
       status: 200,
       data: users,

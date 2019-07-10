@@ -20,32 +20,6 @@ class Helper {
     const token = jwt.sign(payload, secret, { expiresIn: 86400 });
     return token;
   }
-
-  // static verifyToken(token) {
-  //   try { 
-  //     return jwt.verify(token, secret);
-  //   } catch (err) {
-  //     return false;
-  //   }
-  // }
-
-  // static getOneTimeToken(payload, otp) {
-  //   const token = jwt.sign(payload, otp, { expiresIn: '30 mins' });
-  //   return token;
-  // }
-
-  // static generateMailToken(payload) {
-	// 	return jwt.sign(payload, secret, {expiresIn: '1hour'})
-	// }
-
-  // static verifyMailToken(token) {
-	// 	try {
-	// 		const payload = jwt.verify(token, secret);
-	// 		return payload;
-	// 	} catch(err) {
-	// 		return false;
-	// 	}
-	// }
-};
+}
 
 export default Helper;
