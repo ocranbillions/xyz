@@ -12,6 +12,10 @@ export default (sequelize, DataTypes) => {
       required: true,
       unique: true,
     },
+    confirmed: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
   }, {});
   User.associate = (models) => {
     // associations can be defined here
