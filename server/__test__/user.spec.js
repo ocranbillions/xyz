@@ -11,7 +11,7 @@ describe('Signup endpoint', () => {
       firstName: "sam",
       lastName: "ocr",
       email: "samsd@gmail.com",
-      password: 'password2',
+      password: 'password123..',
     })
       .end((err, res) => {
         expect(res.body.status).toEqual(201);
