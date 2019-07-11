@@ -1,6 +1,5 @@
 /* eslint-disable no-undef */
 import supertest from 'supertest';
-// import sinon from 'sinon';
 import app from '../app';
 
 const server = () => supertest(app);
