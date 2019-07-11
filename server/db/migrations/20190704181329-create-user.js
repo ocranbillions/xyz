@@ -23,6 +23,10 @@ module.exports = {
         type: Sequelize.STRING,
         required: true,
       },
+      confirmed: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
