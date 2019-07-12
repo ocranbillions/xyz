@@ -34,8 +34,8 @@ class UserController {
         email: createdUser.email,
       });
     } catch (error) {
-      console.log(error);
-      return util.errorStatus(res, 500, 'server error');
+      return util.errorStatus(res, 500, error.message);
+      // return res.status(500);
     }
   }
 
