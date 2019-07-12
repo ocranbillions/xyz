@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Signup endpoint Should register new user 1`] = `
+Object {
+  "data": Object {
+    "email": "samm@gmail.com",
+    "firstName": "sam",
+    "id": 5,
+    "lastName": "ocr",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiZmlyc3ROYW1lIjoic2FtIiwibGFzdE5hbWUiOiJvY3IiLCJlbWFpbCI6InNhbW1AZ21haWwuY29tIiwiaWF0IjoxNTYyOTM4NzA0LCJleHAiOjE1NjMwMjUxMDR9.6VzOf25MJ_HDtOnDl9sPd4kvgA0YXQSaimmcKLPU25M",
+  },
+  "message": "User Created successfully",
+  "status": 201,
+}
+`;
