@@ -3,7 +3,6 @@
     "heroku-postgresql"
   ],
   "buildpacks": [
-
   ],
   "env": {
     "JWT_SECRET_KEY": {
