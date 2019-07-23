@@ -1,0 +1,19 @@
+{
+  "addons": [
+    "heroku-postgresql"
+  ],
+  "buildpacks": [
+
+  ],
+  "env": {
+    "JWT_SECRET_KEY": {
+      "required": true
+    }
+  },
+  "formation": {
+  },
+  "name": "xyz",
+  "scripts": {
+  },
+  "stack": "heroku-18"
+}
