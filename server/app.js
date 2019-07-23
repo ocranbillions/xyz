@@ -29,6 +29,6 @@ app.use('/api/v1/articles', articlesRoutes);
 
 
 if (process.env.NODE_ENV !== 'test') {
-  app.listen(port, () => console.log('Welcome to xyz'));
+  app.listen(port, () => console.log('Welcome to xyz - A sequelize demo app'));
 }
 export default app;
