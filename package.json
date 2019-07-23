@@ -10,7 +10,7 @@
   "scripts": {
     "start": "node build/app.js",
     "pretest": "cross-env NODE_ENV=test npm run migrate:undo && cross-env NODE_ENV=test npm run migrate && cross-env NODE_ENV=test npm run seed:all",
-    "test": "jest --updateSnapshot --forceExit --detectOpenHandles --verbose --coverage",
+    "test": "NODE_ENV=test nyc --reporter=html --reporter=text mocha --recursive --require @babel/register server/test/*.js",
     "dev": "nodemon --exec babel-node server/app.js",
     "migrate:undo": "node_modules/.bin/sequelize db:migrate:undo:all",
     "migrate": "node_modules/.bin/sequelize db:migrate",
@@ -18,8 +18,8 @@
     "clean": "rm -rf build && mkdir build",
     "build-server": "babel -d ./build ./server",
     "build": "npm run clean && npm run build-server",
-    "heroku-postbuild": "npm run migrate && npm run build",
-    "coveralls": "cat ./coverage/lcov.info | coveralls"
+    "heroku-postbuild": "npm run migrate && npm run seed:all && npm run build",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.0",
@@ -27,13 +27,17 @@
     "@babel/node": "^7.5.0",
     "@babel/preset-env": "^7.5.0",
     "@babel/register": "^7.4.4",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
     "coveralls": "^3.0.4",
     "cross-env": "^5.2.0",
     "eslint": "^6.0.1",
     "eslint-config-airbnb-base": "^13.2.0",
     "eslint-plugin-import": "^2.18.0",
     "jest": "^24.8.0",
+    "mocha": "^6.2.0",
     "nodemon": "^1.19.1",
+    "nyc": "^14.1.1",
     "sinon": "^7.3.2",
     "supertest": "^4.0.2"
   },
