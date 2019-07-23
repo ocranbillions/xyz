@@ -14,6 +14,9 @@
   },
   "name": "xyz",
   "scripts": {
+    "migrate": "node_modules/.bin/sequelize db:migrate",
+    "seed:all": "npx sequelize-cli db:seed:all",
+    "postdeploy": "npm run migrate && npm run seed:all"
   },
   "stack": "heroku-18"
 }
