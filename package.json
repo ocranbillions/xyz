@@ -18,7 +18,7 @@
     "clean": "rm -rf build && mkdir build",
     "build-server": "babel -d ./build ./server",
     "build": "npm run clean && npm run build-server",
-    "heroku-postbuild": "npm run migrate npm run seed:all && npm run build",
+    "heroku-postbuild": "npm run migrate && npm run seed:all && npm run build",
     "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
   "devDependencies": {
