@@ -7,12 +7,6 @@
   "env": {
     "JWT_SECRET_KEY": {
       "required": true
-    },
-    "HEROKU_APP_NAME": {
-      "required": true
-    },
-    "HEROKU_PARENT_APP_NAME": {
-      "required": true
     }
   },
   "formation": {
