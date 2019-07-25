@@ -7,9 +7,15 @@
   "env": {
     "JWT_SECRET_KEY": {
       "required": true
+    },
+    "NPM_CONFIG_PRODUCTION": {
+      "required": true
     }
   },
   "formation": {
+  },
+  "scripts": {
+    "postdeploy": "npx sequelize-cli db:seed:all"
   },
   "name": "xyz",
   "stack": "heroku-18"
