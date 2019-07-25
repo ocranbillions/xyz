@@ -11,6 +11,11 @@
   },
   "formation": {
   },
+  "scripts": {
+    "postdeploy": [
+        "npx sequelize-cli db:seed:all"
+       ]
+  },
   "name": "xyz",
   "stack": "heroku-18"
 }
