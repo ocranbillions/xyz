@@ -11,8 +11,11 @@ module.exports = (sequelize, DataTypes) => {
     articleId: {
       type: DataTypes.INTEGER,
     },
-    commentId: {
-      type: DataTypes.INTEGER,
+    like: {
+      type: DataTypes.BOOLEAN,
+    },
+    dislike: {
+      type: DataTypes.BOOLEAN,
     },
   }, {});
   Like.associate = function(models) {

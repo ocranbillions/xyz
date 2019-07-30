@@ -27,20 +27,20 @@ module.exports = {
         key: 'id',
       },
     },
-    commentId: {
-      type: Sequelize.INTEGER,
-      onDelete: 'CASCADE',
-      onUpdate: 'CASCADE',
-      references: {
-        model: 'Comments',
-        key: 'id',
-      },
+    like: {
+      type: Sequelize.BOOLEAN,
     },
-    likedOn: {
+    dislike: {
+      type: Sequelize.BOOLEAN,
+    },
+    createdAt: {
       allowNull: false,
-      type: Sequelize.DATE,
-      defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+      type: Sequelize.DATE
     },
+    updatedAt: {
+      allowNull: false,
+      type: Sequelize.DATE
+    }
   }),
   down: (queryInterface, Sequelize) => queryInterface.dropTable('Likes')
 };

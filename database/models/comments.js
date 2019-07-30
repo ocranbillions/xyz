@@ -18,12 +18,6 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {});
   Comment.associate = function(models) {
-    Comment.hasMany(models.Like, {
-      foreignKey: 'commentId',
-      as: 'commentlike',
-      onDelete: 'CASCADE',
-      onUpdate: 'CASCADE',
-    });
     Comment.hasMany(models.Report, {
       foreignKey: 'commentId',
       as: 'commentreport',
