@@ -16,8 +16,14 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.INTEGER,
     },
+    firstName: {
+      type: DataTypes.STRING
+    },
+    lastName: {
+      type: DataTypes.STRING
+    },
   }, {});
-  Rating.associate = function(models) {
+  Rating.associate = function (models) {
     // associations can be defined here
   };
   return Rating;
