@@ -14,7 +14,14 @@ module.exports = (sequelize, DataTypes) => {
     },
     articleId: {
       allowNull: false,
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
+    },
+    articleSlug: {
+      type: DataTypes.STRING,
+    },
+    type: {
+      allowNull: false,
+      type: DataTypes.STRING,
     },
   }, {});
   Comment.associate = function(models) {
@@ -29,6 +36,24 @@ module.exports = (sequelize, DataTypes) => {
       as: 'commentreport',
       onDelete: 'CASCADE',
       onUpdate: 'CASCADE',
+    });
+    Comment.belongsToMany(models.Comment, { // comment thread
+      foreignKey: 'commentId',
+      otherKey: 'subcommentId',
+      as: 'childComments',
+      through: 'CommentThread',
+      timestamps: false,
+    });
+    Comment.belongsToMany(models.Comment, { // article comment
+      foreignKey: 'subcommentId',
+      otherKey: 'commentId',
+      as: 'parentComments',
+      through: 'CommentThread',
+      timestamps: false,
+    });
+    Comment.belongsTo(models.User, {
+      foreignKey: 'userId',
+      as: 'commentOwner'
     });
   };
   return Comment;

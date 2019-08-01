@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
       slug: {
         allowNull: false,
         type: DataTypes.STRING,
+        unique: true,
       },
       body: {
         allowNull: false,
@@ -27,6 +28,11 @@ module.exports = (sequelize, DataTypes) => {
       },
       ratings: {
         type: DataTypes.INTEGER,
+      },
+      status: {
+        allowNull: false,
+        type: DataTypes.ENUM('draft', 'published'),
+        defaultValue: 'draft',
       },
       userId: {
         allowNull: false,
@@ -81,6 +87,10 @@ module.exports = (sequelize, DataTypes) => {
       as: 'articlereport',
       onDelete: 'CASCADE',
       onUpdate: 'CASCADE',
+    });
+    Article.belongsTo(models.User, {
+      foreignKey: 'userId',
+      as: 'author'
     });
   };
   return Article;

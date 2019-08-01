@@ -34,6 +34,13 @@ module.exports = {
           key: 'id',
         },
       },
+      articleSlug: {
+        type: Sequelize.STRING,
+      },
+      type: {
+        allowNull: false,
+        type: Sequelize.STRING,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
