@@ -98,7 +98,7 @@ export default class CommentController {
             model: models.Comment,
             as: 'articlecomment',
             where: { type: 'parent' },
-            attributes: ['id', 'body', 'type', 'updatedAt'],
+            attributes: ['id', 'body', 'createdAt'],
             include: [
               // CommentOwner
               {
@@ -110,7 +110,7 @@ export default class CommentController {
               {
                 model: models.Comment,
                 as: 'childComments',
-                attributes: ['id', 'body', 'type', 'updatedAt'],
+                attributes: ['body', 'createdAt'],
                 include: [
                   // CommentOwner
                   {
