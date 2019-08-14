@@ -7,6 +7,7 @@ import LikesController from '../controllers/LikesController';
 import commentValidate from '../middlewares/commentValidations';
 import Validate from '../middlewares/inputValidation';
 import Trending from '../controllers/TrendingArticlesController';
+import TagsController from '../controllers/TagsController';
 
 const { trend } = Trending;
 const {
@@ -23,6 +24,7 @@ const {
 } = ArticleController;
 
 const { postComment } = CommentController;
+const { getTags } = TagsController;
 const { likeArticle, dislikeArticle } = LikesController;
 const { articleValidation, validateId } = articleValidationSchema;
 const { validateReport } = commentValidate;
@@ -39,6 +41,7 @@ const router = Router();
 router.post('/:id/bookmark', verifyToken, Validate.validateParamsId, verifiedUserOnly, bookmarkArticle);
 
 router.get('/trends', trend);
+router.get('/tags', getTags);
 router.post('/', verifyToken, verifiedUserOnly, articleValidation, createArticle);
 router.get('/reportedarticles', verifyToken, verifyAdmins, getReportedArticles);
 router.get('/:slug', fetchRequester, getSingleArticleBySlug);
