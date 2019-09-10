@@ -1,0 +1,47 @@
+.article__interaction {
+  position: relative;
+}
+.material-icons:hover, .icons:hover {
+  cursor: pointer;
+}
+
+
+.share-icons-wrapper {
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  bottom: -4rem;
+  left: -.5px;
+  border-radius: 0.5rem;
+  width: 10.5rem; 
+  height: 4rem;
+  padding-top: 1rem;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 15px 0 rgba(0, 0, 0, 0.19);
+
+  & .icons {
+    height: 24px;
+    width: 24px;
+  }
+}
+
+#email-form {
+  position: absolute;
+  display: flex;
+  // justify-content: space-around;
+  top: 15px;
+  // bottom: -4rem;
+  right: .1px;
+  border-radius: 0.5rem;
+  width: 20.5rem; 
+  // height: 4rem;
+  padding-top: 1rem;
+  // box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 15px 0 rgba(0, 0, 0, 0.19);
+  #email-field {
+    box-sizing: border-box;
+    width: 20rem;
+    font-size: 12px;
+  }
+  #email-field, button {
+    height: 30px;
+  }
+}
