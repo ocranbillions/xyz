@@ -9,7 +9,7 @@ import {
   LOGIN_FAIL,
   AUTH_LOADING,
   LOGOUT,
-  CLEAR_PROFILE
+  CLEAR_ACCOUNTS
 } from './constants';
 import setAuthToken from '../utils/setAuthToken';
 import jwtDecode from 'jwt-decode';
@@ -19,7 +19,6 @@ export const loadUser = () => async dispatch => {
   if (localStorage.token) {
     setAuthToken(localStorage.token);
   }
-
   try {
     const user = jwtDecode(localStorage.token);
 
@@ -56,11 +55,9 @@ export const register = ({ firstName, lastName, email, password }) => async disp
       payload: res.data.data
     });
     dispatch(loadUser());
-
   } catch (err) {
     const { errorMessage } = err.response.data;
     dispatch(setAlert(errorMessage, 'danger'));
-
     dispatch({
       type: REGISTER_FAIL
     });
@@ -74,9 +71,7 @@ export const login = (email, password) => async dispatch => {
       'Content-Type': 'application/json'
     }
   };
-
   const body = JSON.stringify({ email, password });
-
   dispatch({
     type: AUTH_LOADING
   })
@@ -92,15 +87,13 @@ export const login = (email, password) => async dispatch => {
   } catch (err) {
     const { errorMessage } = err.response.data;
     dispatch(setAlert(errorMessage, 'danger'));
-
     dispatch({
       type: LOGIN_FAIL
     });
   }
 };
 
-// Logout / Clear Profile
 export const logout = () => dispatch => {
-  // dispatch({ type: CLEAR_PROFILE });
   dispatch({ type: LOGOUT });
+  dispatch({ type: CLEAR_ACCOUNTS });
 };

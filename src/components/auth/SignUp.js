@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { setAlert } from '../../actions/alertActions';
 import { register } from '../../actions/authActions';
 import { Link, Redirect } from 'react-router-dom';
+import Spinner from '../layout/Spinner';
 import PropTypes from 'prop-types';
 
 import Alert from '../layout/Alert';
@@ -56,7 +57,7 @@ const SignUp = ({ setAlert, register, isAuthenticated, loading }) => {
                 <input type="password" className="form__input" placeholder="password" id="password" name="password" value={password} onChange={e => onChange(e)}/>
               </div>
               <input type="submit" id="submit" className="btn btn-blue" value='Register' value={loading ? "loading..." : "Register"}/>
-
+              {loading && <Spinner />}
               <Alert />
             </form>
 

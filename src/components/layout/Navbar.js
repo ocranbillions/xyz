@@ -15,11 +15,10 @@ const Navbar = ({ isAuthenticated, logout }) => {
               <ul className="list">
                   <li><Link to="#">About</Link></li>
                   <li><Link to="#">Stories</Link></li>
-                  <li><Link to="#">FAQ</Link></li>
                   {
                     isAuthenticated ?
                       <Fragment>
-                        <li><Link to="/" onClick={logout}>Sign Out</Link></li>
+                        <li><a href="#!" onClick={logout}>Sign Out</a></li>
                       </Fragment>
                     :
                       <Fragment>

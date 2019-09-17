@@ -35,7 +35,7 @@ a {
 }
 
 .wrapper {
-  max-width: 140rem;
+  /* max-width: 140rem; */
   margin: 0px auto;
 }
 
@@ -665,8 +665,9 @@ th {
 .account {
   background: #f5f5f5;
   padding: 2rem;
-  border: 2px solid var(--primary-color2);
   margin: 5px;
+  border-radius: 20px;
+  box-shadow: 0 1.5rem 0.5rem rgba(0, 0, 0, 0.2);
 }
 
 .account-details a {

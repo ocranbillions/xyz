@@ -3,6 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../../actions/authActions';
+import Spinner from '../layout/Spinner';
 
 import Alert from '../layout/Alert';
 
@@ -20,7 +21,7 @@ const SignIn = ({ login, isAuthenticated, loading }) => {
 
   const onChange = event => setFormData({...formData, [event.target.name]: event.target.value });
 
-  const onSubmit = async event => {
+  const onSubmit = event => {
     event.preventDefault();
     login(email, password);
   }
@@ -38,16 +39,16 @@ const SignIn = ({ login, isAuthenticated, loading }) => {
                     <form action="" className="login_form margin-bottom-small" onSubmit={onSubmit}>
 
                         <div className="form__group">
-                            <label for="email" className="form__label">Email</label>
+                            <label htmlFor="email" className="form__label">Email</label>
                             <input type="email" className="form__input" id="email" placeholder="example@domain.com" name="email" value={email} onChange={e => onChange(e)} />
                         </div>
                         <div className="form__group">
-                            <label for="password" className="form__label">Password</label>
+                            <label htmlFor="password" className="form__label">Password</label>
                             <input type="password" className="form__input" id="password" placeholder="secret" name="password" value={password} onChange={e => onChange(e)} />
                         </div>
 
                         <input type="submit" id="submit" className="btn btn-blue login-btn" value={loading ? "loading..." : "Login"} />
-
+                        {loading && <Spinner />}
                          <Alert />
                     </form>
 
@@ -65,7 +66,7 @@ const SignIn = ({ login, isAuthenticated, loading }) => {
 SignIn.propTypes = {
   login: PropTypes.func.isRequired,
   isAuthenticated: PropTypes.bool,
-  loading: PropTypes.string.isRequired,
+  loading: PropTypes.bool.isRequired,
 };
 const mapStateToProps = state => ({
   isAuthenticated: state.authReducer.isAuthenticated,
