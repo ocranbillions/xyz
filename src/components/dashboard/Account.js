@@ -6,7 +6,7 @@ function Account({ account }) {
   return (
     <Fragment>
       <div className="account margin-bottom-small f-item">
-        <p className="heading-3"><span id="account-number">{account.accountnumber}</span> - <span className="green">{account.status}</span></p>
+        <p className="heading-3"><span id="account-number">{account.accountnumber}</span> - <span className="green">{account.status.toUpperCase()}</span></p>
         <div className="account-details">
           <p className="margin-bottom-small">Balance: N{account.balance}</p>
           <p className="margin-bottom-small">Type: {account.type}</p>
