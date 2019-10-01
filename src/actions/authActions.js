@@ -47,7 +47,7 @@ export const register = ({ firstName, lastName, email, password }) => async disp
     type: AUTH_LOADING
   })
   try {
-    const res = await axios.post('https://my-banka.herokuapp.com/api/v1/auth/signup', body, config);
+    const res = await axios.post('http://localhost:5000/api/v1/auth/signup', body, config);
 
     // dispatch success if everything goes well.
     dispatch({
@@ -76,7 +76,7 @@ export const login = (email, password) => async dispatch => {
     type: AUTH_LOADING
   })
   try {
-    const res = await axios.post('https://my-banka.herokuapp.com/api/v1/auth/signin', body, config);
+    const res = await axios.post('http://localhost:5000/api/v1/auth/signin', body, config);
 
     dispatch({
       type: LOGIN_SUCCESS,

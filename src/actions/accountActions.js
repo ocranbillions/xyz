@@ -9,7 +9,7 @@ export const fetchAccountsByEmail = (email) => async dispatch => {
     type: LOADING_ACCOUNTS
   })
   try {
-    const res = await axios.get(`https://my-banka.herokuapp.com/api/v1/users/${email}/accounts`);
+    const res = await axios.get(`http://localhost:5000/api/v1/users/${email}/accounts`);
 
     dispatch({
       type: ACCOUNTS_LOADED,
@@ -33,7 +33,7 @@ export const fetchAccountTransactions = (accountNumber) => async dispatch => {
     type: LOADING_ACCOUNTS
   })
   try {
-    const res = await axios.get(`https://my-banka.herokuapp.com/api/v1/accounts/4194194410/transactions/`);
+    const res = await axios.get(`http://localhost:5000/api/v1/accounts/4194194410/transactions/`);
 
     dispatch({
       type: ACCOUNTS_LOADED,
