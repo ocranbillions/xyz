@@ -1,0 +1,1 @@
+export const SET_JOKES_CATEGORY = 'SET_JOKES_CATEGORY'
