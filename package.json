@@ -46,7 +46,7 @@
     "body-parser": "^1.19.0",
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "nodemailer": "^6.2.1",
     "nodemailer-sendgrid-transport": "^0.2.0",
     "passport": "^0.4.0",
